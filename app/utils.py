@@ -27,11 +27,8 @@ async def generate_url_with_params(base_url: str, params: dict[str, str]) -> str
     
     return new_url
 
-async def get_topic_slugs_or(path: str, topics: dict[str, str], default: str) -> str:
+async def get_topic_slugs(path: str, topics: dict[str, str]) -> str:
     """translates our custom user friendly path notation 'topic1+topic2' or 'topic1|topic2' notation to Unsplash's slug query parameter notation '62MVjTLSkeQ,bo8jQKTaE0Y'."""
-    
-    if path == '' or path == None:
-        return default
 
     topic_names: list[str] = re.split(r'\||\+', path)
     
